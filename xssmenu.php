@@ -27,7 +27,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="xss1.php?v1=<?php echo $_SESSION['email'];?>&v2=Coba Saja" target="frmmenu">XSS1</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -49,8 +49,7 @@
 </nav>
 
 <div class="container-fluid mt-3">
-  <h3>Navbar With Dropdown</h3>
-  <p>This example adds a dropdown menu in the navbar.</p>
+  <iframe src="" name="frmmenu" width="100%" height="400px"></iframe>
 </div>
 
 </body>

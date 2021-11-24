@@ -1,6 +1,6 @@
-<?php
-$var1 = @$_GET['v1'];
-$var2 = @$_GET['v2'];
+<?php if(!isset($_SESSION)) session_start();
+$var1 = filter_var(@$_GET['v1'],FILTER_SANITIZE_STRING);
+$var2 = htmlentities(filter_var(@$_GET['v2'],FILTER_SANITIZE_STRING));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,16 @@ $var2 = @$_GET['v2'];
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
+<?php 
+ if (empty($_SESSION['login'])) {
+	 echo '
+	 <div class="alert alert-danger">
+    <strong>Bigal..kate jeme kamu tuh salah !</strong><a href="index.php" class="alert-link">Login kudai di sini</a>
+  </div>
+	 ';
+	 exit();
+ }
+?>
 <div class="container mt-3">
   <h2><?php echo $var1;?></h2>
   <p>Image at the top (card-img-top):</p>

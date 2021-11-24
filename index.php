@@ -25,12 +25,12 @@
 </div>
 </body>
 </html>
-<?php 
+<?php if(!isset($_SESSION)) session_start();
 if (isset($_POST['bLogin'])) {
  $email=filter_var(htmlentities($_POST['email']),FILTER_SANITIZE_STRING);
  $pswd=$_POST['pswd'];
+ $_SESSION['email']=$email;
  if (($email=='harrywitriyono@gmail.com') and ($pswd=='1qaz2wsx')) {
-	 if (!isset($_SESSION)) session_start();
 	 $_SESSION['login']='adalogin';
 	 echo "<script>window.location.href='xssmenu.php';</script>";
  } else {
